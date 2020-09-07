@@ -10,5 +10,12 @@ public class Tween
     public float StartTime {get; private set;}
     public float Duration {get; private set;}
 
-    
+    public Tween(Transform Target, Vector3 StartPos, Vector3 EndPos, float StartTime, float Duration)
+    {
+        this.Target = Target;
+        this.StartPos = StartPos;
+        this.EndPos = EndPos;
+        this.StartTime = StartTime;
+        this.Duration = Duration;
+    }
 }
