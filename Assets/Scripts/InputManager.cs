@@ -6,11 +6,15 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private GameObject item;
     private Tweener tweener;
+    private List<GameObject> itemList = new List<GameObject>();
+
+    int count = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         tweener = gameObject.GetComponent<Tweener>();
+        itemList.Add(item);
     }
 
     // Update is called once per frame
@@ -18,16 +22,55 @@ public class InputManager : MonoBehaviour
     {
         Transform currentTrans = item.transform;
         Vector3 currentPos = item.transform.position;
+        Vector3 basePos = new Vector3(0.0f, 0.5f, 0.0f);
 
-        if(Input.GetKeyDown(KeyCode.A))
-            tweener.AddTween(currentTrans, currentPos, new Vector3(-2.0f,0.5f,0.0f), 1.5f);         
-        if(Input.GetKeyDown(KeyCode.D))
-            tweener.AddTween(currentTrans, currentPos, new Vector3(2.0f,0.5f,0.0f), 1.5f);
-        if(Input.GetKeyDown(KeyCode.S))
-            tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,-2.0f), 0.5f);           
-        if(Input.GetKeyDown(KeyCode.W))
-            tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,2.0f), 0.5f);   
-            
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject item1 = Instantiate(item, basePos, transform.rotation);
+            itemList.Add(item1);
+            Debug.Log(itemList.Count);
+        }
 
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                foreach(GameObject item in itemList)
+                {
+                    if(tweener.AddTween(currentTrans, currentPos, new Vector3(-2.0f,0.5f,0.0f), 1.5f))
+                    break;
+                    /*Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(-2.0f,0.5f,0.0f), 1.5f));*/
+                }
+            }
+                         
+            if(Input.GetKeyDown(KeyCode.D))
+            {
+                foreach(GameObject item in itemList)
+                {
+                    if(tweener.AddTween(currentTrans, currentPos, new Vector3(2.0f,0.5f,0.0f), 1.5f))
+                    break;
+                    /*Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(2.0f,0.5f,0.0f), 1.5f));*/
+                }              
+            }
+                
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                foreach(GameObject item in itemList)
+                {
+                    /*if(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,-2.0f), 0.5f))
+                    break; */
+                    Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,-2.0f), 0.5f));
+                }               
+            }
+                         
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+                foreach(GameObject item in itemList)
+                {
+                    /*if(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,2.0f), 0.5f))
+                    break;*/
+                    Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,2.0f), 0.5f));
+                } 
+            }
+               
+        
     }
 }

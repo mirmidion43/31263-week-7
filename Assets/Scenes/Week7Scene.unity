@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3a1fcbf705bd244af0a00874a1119c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 1334691496}
 --- !u!4 &604448207
 Transform:
   m_ObjectHideFlags: 0
@@ -361,6 +362,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1334691496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7661221800492699227, guid: 61127568d6cb5d24bbc40693f7598e00,
+    type: 3}
+  m_PrefabInstance: {fileID: 7700749732253595560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7616923503700123873
 PrefabInstance:
   m_ObjectHideFlags: 0
