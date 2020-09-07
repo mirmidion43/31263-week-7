@@ -12,7 +12,7 @@ public class Tweener : MonoBehaviour
     {
         
     }
- void AddTween(Transform targetObject, Vector3 startPos, Vector3 endPos, float duration)
+    public void AddTween(Transform targetObject, Vector3 startPos, Vector3 endPos, float duration)
     {
         if(activeTween == null)
         activeTween = new Tween(targetObject, startPos, endPos, Time.time, duration);
@@ -30,7 +30,7 @@ public class Tweener : MonoBehaviour
         if(Vector3.Distance(activeTween.Target.position, activeTween.EndPos) <= 0.1f)
         {
             activeTween.Target.position = activeTween.EndPos;
-            activeTween == null;
+            activeTween = null;
         }
 
     }
