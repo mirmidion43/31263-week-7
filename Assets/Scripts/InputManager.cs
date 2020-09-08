@@ -20,14 +20,14 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform currentTrans = item.transform;
-        Vector3 currentPos = item.transform.position;
+        //Transform currentTrans = item.transform;
+        //Vector3 currentPos = item.transform.position;
         Vector3 basePos = new Vector3(0.0f, 0.5f, 0.0f);
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject item1 = Instantiate(item, basePos, transform.rotation);
-            itemList.Add(item1);
+            //GameObject item = Instantiate(item, basePos, transform.rotation);
+            itemList.Add(Instantiate(item, basePos, transform.rotation));
             Debug.Log(itemList.Count);
         }
 
@@ -35,9 +35,8 @@ public class InputManager : MonoBehaviour
             {
                 foreach(GameObject item in itemList)
                 {
-                    if(tweener.AddTween(currentTrans, currentPos, new Vector3(-2.0f,0.5f,0.0f), 1.5f))
+                    if(tweener.AddTween(item.transform, item.transform.position, new Vector3(-2.0f,0.5f,0.0f), 1.5f))
                     break;
-                    /*Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(-2.0f,0.5f,0.0f), 1.5f));*/
                 }
             }
                          
@@ -45,9 +44,8 @@ public class InputManager : MonoBehaviour
             {
                 foreach(GameObject item in itemList)
                 {
-                    if(tweener.AddTween(currentTrans, currentPos, new Vector3(2.0f,0.5f,0.0f), 1.5f))
+                    if(tweener.AddTween(item.transform, item.transform.position, new Vector3(2.0f,0.5f,0.0f), 1.5f))
                     break;
-                    /*Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(2.0f,0.5f,0.0f), 1.5f));*/
                 }              
             }
                 
@@ -55,9 +53,8 @@ public class InputManager : MonoBehaviour
             {
                 foreach(GameObject item in itemList)
                 {
-                    /*if(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,-2.0f), 0.5f))
-                    break; */
-                    Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,-2.0f), 0.5f));
+                    if(tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f,0.5f,-2.0f), 0.5f))
+                    break; 
                 }               
             }
                          
@@ -65,9 +62,8 @@ public class InputManager : MonoBehaviour
             {
                 foreach(GameObject item in itemList)
                 {
-                    /*if(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,2.0f), 0.5f))
-                    break;*/
-                    Debug.Log(tweener.AddTween(currentTrans, currentPos, new Vector3(0.0f,0.5f,2.0f), 0.5f));
+                    if(tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f,0.5f,2.0f), 0.5f))
+                    break;
                 } 
             }
                
